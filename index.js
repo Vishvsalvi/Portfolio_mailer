@@ -5,12 +5,14 @@ const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 app.use(cors());
 
 const emailController = async(req, res) => {
 
     const {email, name, message} = req.body
+    console.log(req.body)
 
   
     const transporter = nodemailer.createTransport({
